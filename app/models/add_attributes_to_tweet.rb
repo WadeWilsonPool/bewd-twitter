@@ -1,0 +1,2 @@
+class AddAttributesToTweet < ApplicationRecord
+end
