@@ -49,10 +49,4 @@ class SessionsController < ApplicationController
             }
         end
     end
-
-    private
-
-    def user_params
-        params.require{ user: { username: "username", email: "email@email.com", password: "password"} }
-    end
 end

@@ -25,6 +25,6 @@ class TweetsController < ApplicationController
     private
 
     def tweet_params
-        params.require{ tweet: { message: "message" } }
+        params.require(:tweet).permit(:message, :user_id)
     end
 end
