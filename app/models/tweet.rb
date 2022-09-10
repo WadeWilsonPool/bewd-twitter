@@ -3,5 +3,5 @@ class Tweet < ApplicationRecord
 
   validates :user_id, presence: true
 
-  validates :content, length: { maximum: 140 }, presence: true
+  validates :message, length: { maximum: 140 }, presence: true
 end
