@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if @user && (BCrypt::Password.new(@user.password) == params[:user][:password])
       session = @user.sessions.create
 
-      cookies.permanent.signed[:tweet_session_token] = {
+      cookies.permanent.signed[:twitter_session_token] = {
         value: session.token,
         httponly: true
       }
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def authenticated
-    token = cookies.permanent.signed[:tweet_session_token]
+    token = cookies.permanent.signed[:twitter_session_token]
     session = Session.find_by(token: token)
 
     if session
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    token = cookies.permanent.signed[:tweet_session_token]
+    token = cookies.permanent.signed[:twitter_session_token]
     session = Session.find_by(token: token)
 
     if session&.destroy

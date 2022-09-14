@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   end
 
   def index_by_user
-    token = cookies.signed[:tweet_session_token]
+    token = cookies.signed[:twitter_session_token]
     session = Session.find_by(token: token)
 
     if session
@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    token = cookies.signed[:tweet_session_token]
+    token = cookies.signed[:twitter_session_token]
     session = Session.find_by(token: token)
 
     if session

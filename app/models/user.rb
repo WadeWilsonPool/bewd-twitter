@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {
     minimum: 8, maximum: 64
   }
+
   validates :email, presence: true, length: {
     minimum: 5, maximum: 500
   }
@@ -17,7 +18,7 @@ class User < ApplicationRecord
 
   private
 
-  def hash_password
-    self.password = BCrypt::Password.create(password)
-  end
+    def hash_password
+      self.password = BCrypt::Password.create(self.password)
+    end
 end
