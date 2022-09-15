@@ -1,3 +1,3 @@
 json.user do
-    json.username @user.username
+  json.username @user.username
 end
